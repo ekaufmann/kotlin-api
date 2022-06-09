@@ -1,8 +1,6 @@
 package com.eduardo.kotlinAPI.controller
 
 import com.eduardo.kotlinAPI.controller.request.BookRequest
-import com.eduardo.kotlinAPI.mapper.BookMapper
-import com.eduardo.kotlinAPI.repository.BookRepository
 import com.eduardo.kotlinAPI.service.BookService
 import io.swagger.annotations.ApiOperation
 import io.swagger.annotations.ApiParam
