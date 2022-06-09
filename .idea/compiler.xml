@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="CompilerConfiguration">
-    <bytecodeTargetLevel>
-      <module name="kotlin-API.kotlin-API.main" target="11" />
-      <module name="kotlin-API.kotlin-API.test" target="11" />
-    </bytecodeTargetLevel>
-  </component>
-</project>
