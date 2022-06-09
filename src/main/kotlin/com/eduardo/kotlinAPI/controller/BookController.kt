@@ -1,9 +1,9 @@
 package com.eduardo.kotlinAPI.controller
 
 import com.eduardo.kotlinAPI.controller.request.BookRequest
-import com.eduardo.kotlinAPI.mapper.BookMapper
-import com.eduardo.kotlinAPI.repository.BookRepository
 import com.eduardo.kotlinAPI.service.BookService
+import io.swagger.annotations.ApiOperation
+import io.swagger.annotations.ApiParam
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -21,15 +21,18 @@ class BookController(
     private val bookService: BookService
 ) {
 
+    @ApiOperation(value = "Retrieve all books from the database")
     @GetMapping
     fun retrieveAllBooks() = ResponseEntity.ok(bookService.retrieveAllBooks())
 
+    @ApiOperation(value = "Activate or deactivate a specific book")
     @PatchMapping("/activate/{id}")
-    fun activateBook(@PathVariable id: Int) = bookService.activateBook(id)
+    fun activateBook(@ApiParam() @PathVariable id: Int) = bookService.activateBook(id)
 
+    @ApiOperation(value = "Insert a new book in the database")
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    fun insertBook(@RequestBody request: BookRequest) {
+    fun insertBook(@ApiParam(value = "Book to be inserted", required = true) @RequestBody request: BookRequest) {
         bookService.insertBook(request)
     }
 }

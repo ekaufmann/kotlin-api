@@ -1,4 +1,7 @@
 spring:
+  mvc.pathmatch:
+      matching-strategy: ant-path-matcher
+
   datasource:
     driver-class-name: org.h2.Driver
     username: sa
