@@ -4,8 +4,8 @@ import com.eduardo.kotlinAPI.AbstractTest
 import com.eduardo.kotlinAPI.component.BookComponent
 import com.eduardo.kotlinAPI.entity.Book
 import com.eduardo.kotlinAPI.repository.BookRepository
-import com.eduardo.kotlinAPI.util.INATIVO
 import com.eduardo.kotlinAPI.util.ATIVO
+import com.eduardo.kotlinAPI.util.INATIVO
 import com.eduardo.kotlinAPI.util.URL_BOOKS
 import com.eduardo.kotlinAPI.util.URL_BOOKS_CHANGE_STATUS
 import com.fasterxml.jackson.databind.ObjectMapper
