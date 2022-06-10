@@ -1,16 +1,13 @@
 spring:
-  mvc.pathmatch:
-      matching-strategy: ant-path-matcher
-
   datasource:
     driver-class-name: org.h2.Driver
     username: sa
-    url: jdbc:h2:file:C:\workspace\db
+    url: jdbc:h2:mem:testdb
     password: ''
 
   h2:
     console:
-      enabled: 'true'
+      enabled: 'false'
       path: /h2
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect

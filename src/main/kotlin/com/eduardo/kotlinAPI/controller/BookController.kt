@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("api/v1/books")
+@RequestMapping("/api/v1/books")
 class BookController(
     private val bookService: BookService
 ) {
@@ -27,7 +27,7 @@ class BookController(
 
     @ApiOperation(value = "Activate or deactivate a specific book")
     @PatchMapping("/activate/{id}")
-    fun activateBook(@ApiParam() @PathVariable id: Int) = bookService.activateBook(id)
+    fun activateBook(@ApiParam("Id to locate the book and change it status") @PathVariable id: Int) = bookService.activateBook(id)
 
     @ApiOperation(value = "Insert a new book in the database")
     @PostMapping
