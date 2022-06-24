@@ -27,5 +27,8 @@ data class Book(
     var publishYear: Int,
 
     @Column(name = "status")
-    var status: BookStatus
+    var status: BookStatus,
+
+    @Column(name = "price")
+    var price: Int
 )

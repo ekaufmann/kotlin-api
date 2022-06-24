@@ -29,8 +29,8 @@ class BookControllerTest : AbstractTest() {
 
     private lateinit var activatedBook: Book
     private lateinit var deactivatedBook: Book
-    private var id by Delegates.notNull<Int>()
     private lateinit var bookList: List<Book>
+    private var id by Delegates.notNull<Int>()
 
     @BeforeEach
     fun setup() {
@@ -63,6 +63,8 @@ class BookControllerTest : AbstractTest() {
     fun `when successfully call the insert book endpoint`() {
         val bookRequest = BookComponent.createBookRequest()
         val body = ObjectMapper().writeValueAsString(bookRequest)
+
+        BookComponent.createMockBookPriceRequest(bookRequest.name, 5600)
 
         this.mockMvc.perform(
             post(URL_BOOKS)
