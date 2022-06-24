@@ -20,7 +20,7 @@ class BookComponent {
     companion object {
         fun createMockBookPriceRequest(bookName: String?, price: Int) {
             stubFor(
-                get(urlPathEqualTo(URL_PRICE_BOOK))
+                get(urlPathEqualTo("/api/v1/price"))
                     .withQueryParam("bookName", equalTo(bookName))
                     .willReturn(
                         aResponse()
