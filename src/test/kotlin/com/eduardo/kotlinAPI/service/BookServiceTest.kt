@@ -6,6 +6,7 @@ import com.eduardo.kotlinAPI.entity.Book
 import com.eduardo.kotlinAPI.enums.BookStatus
 import com.eduardo.kotlinAPI.enums.BookStatus.ATIVO
 import com.eduardo.kotlinAPI.enums.BookStatus.INATIVO
+import com.eduardo.kotlinAPI.integration.feign.client.PriceClient
 import com.eduardo.kotlinAPI.mapper.BookMapper
 import com.eduardo.kotlinAPI.repository.BookRepository
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -31,6 +32,8 @@ class BookServiceTest {
     private lateinit var bookRepository: BookRepository
     @Mock
     private lateinit var bookMapper: BookMapper
+    @Mock
+    private lateinit var priceClient: PriceClient
 
     private lateinit var book: Book
     private lateinit var bookRequest: BookRequest
@@ -68,6 +71,7 @@ class BookServiceTest {
 
         `when`(bookMapper.toEntity(bookRequest)).thenReturn(book)
         `when`(bookRepository.save(book)).thenReturn(book)
+        `when`(priceClient.retrievePrice(book.name)).thenReturn(book.price)
         bookService.insertBook(bookRequest)
         verify(bookMapper, only()).toEntity(bookRequest)
         verify(bookRepository, only()).save(book)
